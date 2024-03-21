@@ -23,7 +23,7 @@ from usrp.pilot import PILOT_SIZE
 
 ARCH = 'CCVVCC'
 NUM_SYMBOLS = 512
-CKPT_NAME = '../bkup_ckpt/best/awgn/CCVVCC_512_10dB_599'
+CKPT_NAME = '../ckpt/CCVVCC_512_10dB_599'
 TARGET_JPEG_RATE = 2048
 
 encoder_network = SemViT_Encoder_Only(
@@ -41,6 +41,10 @@ decoder_network = SemViT_Decoder_Only(
 	has_gdn=False,
 	num_symbols=NUM_SYMBOLS,
 )
+
+
+encoder_network.built = True
+decoder_network.built = True
 encoder_network.load_weights(CKPT_NAME).expect_partial()
 decoder_network.load_weights(CKPT_NAME).expect_partial()
 

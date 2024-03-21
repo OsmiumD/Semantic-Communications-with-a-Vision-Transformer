@@ -81,8 +81,8 @@ def main(args):
 
 def prepare_dataset():
   AUTO = tf.data.experimental.AUTOTUNE
-  test_ds = dataset_generator('/dataset/CIFAR10/test/')
-  train_ds = dataset_generator('/dataset/CIFAR10/train/').cache()
+  test_ds = dataset_generator('./dataset/CIFAR10/test/')
+  train_ds = dataset_generator('./dataset/CIFAR10/train/').cache()
 
   normalize = tf.keras.layers.experimental.preprocessing.Rescaling(1./255)
   augment_layer = tf.keras.Sequential([
