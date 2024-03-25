@@ -13,3 +13,4 @@ usrp/*.png
 usrp/*.npz
 checkpoint
 analysis/temp/
+.idea
